@@ -5,7 +5,7 @@ var readable = fs.createReadStream(__dirname + '/greet.txt');
 
 var writable = fs.createWriteStream(__dirname + '/greetcopy.txt');
 
-var compressed = fs.createWriteStream(__dirname + '/greet.txt.gz');
+var compressed = fs.createTransformStream(__dirname + '/greet.txt.gz');
 
 var gzip = zlib.createGzip();
 
