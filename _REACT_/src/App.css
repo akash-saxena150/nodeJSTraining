@@ -21,7 +21,21 @@
 .App-link {
   color: #61dafb;
 }
+.formContainer{
+  padding: 0;
+  margin: 50px auto;
+}
+.formContainer>li{
+  list-style: none;
+  margin-bottom: 10px;
 
+}
+.formContainer>li>input{
+  padding: 5px;
+  border-radius: 5px;
+  height: 30px;
+  border: 1px solid #1f1f1f;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

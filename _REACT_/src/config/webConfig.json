@@ -1,0 +1,14 @@
+{
+    "SignUp":{
+        "header": "Sign-up",
+        "progress": "Hold on tight. Registration in progress ...",
+        "error": "Uh oh! We ran into some glitch",
+        "success": "Congratulations tiger! You're on your way to get fit!"
+    },
+    "SignIn":{
+        "header": "Sign-In",
+        "progress": "Hold on tight. Taking to your dashboard right away!",
+        "error": "Uh oh! We ran into some glitch",
+        "success": "Your dashboard will show here ..."
+    }
+}
