@@ -5,6 +5,7 @@ class SignUp extends Component {
         super(props);
         this.formFields = this.props.formFields;
         this.state={};
+        this.refInp = React.createRef();
     }
     componentWillMount(){
         for(let i = 0; this.props.formFields[i]; i++)
@@ -41,7 +42,11 @@ class SignUp extends Component {
         )
     }
     renderEl(el, indx){
-        return (<li key={`${el.key}${indx}`}><input type={el.type} placeholder={el.key} value={this.state[el.key]} onChange={(e)=>{this.changeInp(e, el.key)}}/><div></div></li>)
+        return (<li key={`${el.key}${indx}`}><input ref={this.refInp} type={el.type} placeholder={el.key} value={this.state[el.key]} onChange={(e)=>{this.changeInp(e, el.key)}}/><div></div></li>)
+    }
+    componentDidMount(){
+        console.log("RefInp: ",this.refInp);
+        this.refInp.current.focus();
     }
     render() {
         return (

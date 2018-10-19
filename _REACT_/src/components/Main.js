@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import RenderList from './RenderList';
+import HOC from './HOC';
+import CountryContext from './Context';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 class Main extends Component {
     constructor(props){
@@ -10,6 +13,7 @@ class Main extends Component {
         list: [{name: "Akash"}, {name: "Akshay"}, {name: "Shraddha"}]
         };
         console.log("[Main.js] constructor loaded ...");
+        console.log("HOC",HOC);
     }
     componentWillMount(){
         console.log("[Main.js] component will mount ...");
@@ -43,16 +47,24 @@ class Main extends Component {
     }
     render() {
         console.log("[Main.js] render executed");
+        // const RenderList = <RenderList deleteList={this.deleteList} that={this} list={this.state.list}/>;
+        const HOCComponent = HOC(RenderList);
         return (
+            <BrowserRouter>
             <div>
+                <Route path="/signIn" exact component={SignIn}/>
+                <Route path="/signUp" component={SignUp}/>
                 <div>
                     <button onClick={this.changeAction.bind(this,0)}>Sign up</button>
                     <button onClick={this.changeAction.bind(this, 1)}>Sign in</button>
                 </div>
-                {/* {this.state.action===0 && <SignUp/>}
-                {this.state.action === 1 && <SignIn/>} */}
-                <div><RenderList deleteList={this.deleteList} that={this} list={this.state.list}/></div>
+                <CountryContext.Provider value={{"country": "Srilanka"}}>
+                 {this.state.action===0 && <SignUp/>}
+                 </CountryContext.Provider>
+                {this.state.action === 1 && <SignIn/>} 
+                {/* <HOCComponent deleteList={this.deleteList} that={this} list={this.state.list}/> */}
         </div>
+        </BrowserRouter>
         );
   }
 }

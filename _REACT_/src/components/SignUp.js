@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './Form';
 import axios from 'axios';
+import CountryContext from './Context';
 
 class SignUp extends Component {
     constructor(props){
@@ -37,8 +38,12 @@ class SignUp extends Component {
         let {success, error, progress} = this.state;
         console.log(success, error, progress);
         console.log("[SignUp.js] render called ...");
+        console.log("CountryContext",CountryContext);
         return (
             <div className="signUp">
+                <CountryContext.Consumer>
+                    {val=><h1>{val.country}</h1>}
+                </CountryContext.Consumer>
                 <h1>Sign-up</h1>
                 {!(success || error || progress) && <ul className="formContainer">
                     <Form formFields = {this.formFields} submitAction = {this.takeAction} that = {this}/>
