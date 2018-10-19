@@ -13,14 +13,9 @@ class SignUp extends Component {
             {type: 'password', key: 'password'}
         ];
         this.state={progress: false, success: false, error: false, errorMsg: ''};
-        console.log("[SignUp.js] constructor loaded ...");
+        
     }
-    componentWillMount(){
-        console.log("[SignUp.js] component will mount ...");
-    }
-    componentDidMount(){
-        console.log("[SignUp.js] component did mount ...");
-    }
+    
     takeAction(obj){
         let self = this;
         self.setState({progress: true});
@@ -36,9 +31,7 @@ class SignUp extends Component {
     
     render() {
         let {success, error, progress} = this.state;
-        console.log(success, error, progress);
-        console.log("[SignUp.js] render called ...");
-        console.log("CountryContext",CountryContext);
+        console.log("Sign up props",this.props);
         return (
             <div className="signUp">
                 <CountryContext.Consumer>
