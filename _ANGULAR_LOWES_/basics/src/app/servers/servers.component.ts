@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css'],
 })
 export class ServersComponent implements OnInit {
-
+  serverCreatedStatus = "Waiting to create a server"
   constructor() { }
 
   ngOnInit() {
+  }
+  createServer(e){
+    console.log(e);
+    this.serverCreatedStatus = "Server created";
   }
 
 }
