@@ -1,0 +1,23 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput name="fName" placeholder="First Name" type="text" [(ngModel)]="this.formFields.fName"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput name="lName" placeholder="Last Name" type="text" [(ngModel)]="this.formFields.lName"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput name="email" placeholder="Email" type="email" [(ngModel)]="this.formFields.email"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput name="mobile" placeholder="Mobile" type="number" [(ngModel)]="this.formFields.mobile"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput name="pass" placeholder="Password" type="password" [(ngModel)]="this.formFields.pass"/>
+  </mat-form-field>
+</form>
+  <!-- <li><input type="text" [(ngModel)]="this.formFields.lName"/></li>
+  <li><input type="email" [(ngModel)]="this.formFields.email"/></li>
+  <li><input type="number" [(ngModel)]="this.formFields.mobile"/></li>
+  <li><input type="password" [(ngModel)]="this.formFields.pass"/></li>
+</ul> -->
+<button mat-raised-button color="primary" (click)="register()">Register!</button>

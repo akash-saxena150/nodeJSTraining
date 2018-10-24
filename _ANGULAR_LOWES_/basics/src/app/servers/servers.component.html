@@ -1,7 +1,23 @@
-<h1 class="header">List of servers</h1>
-<app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
-<hr/>
-<p>{{serverCreatedStatus}}</p>
-<button mat-raised-button color="primary" (click)="createServer($event)">Add server</button>
+<div fxLayout="column" fxLayoutAlign="start stretch">
+    <div fxFlexAlign="center">
+        <h1 class="header">List of servers</h1>
+    </div>
+    <div fxFlexAlign="stretch" class="serverList">
+        <app-server></app-server>
+        <app-server></app-server>
+        <app-server></app-server>
+    </div>
+    <div fxFlexAlign="stretch">
+        <p>{{serverCreatedStatus}}</p>
+        <hr/>
+        <p>{{serverName}}</p>
+        <div>
+            <!-- <input placeholder="Server name" value="" (input)="onInpUpdate($event)"> -->
+            <input placeholder="Server name" value="" [(ngModel)]="serverName">
+        </div>
+        <button mat-raised-button color="primary" (dblclick)="createServer($event)">Add server</button>
+    </div>
+    <div fxFlexAlign="center">
+        <app-sign-up></app-sign-up>
+    </div>
+</div>
