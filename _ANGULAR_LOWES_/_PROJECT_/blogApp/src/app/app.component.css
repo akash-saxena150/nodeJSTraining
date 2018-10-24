@@ -4,6 +4,7 @@
 #header{ padding: 5px 10px}
 .postList{padding: 10px;}
 .content{padding: 10px; background: #c1c1c1}
-.postDigestPic{background: #1f1f1f}
+.postDigestPic{background: #c9d3e2}
 .postDigestText{background: #fcfcfc}
+.postDigestText p{margin: 0; padding: 5px}
 .postDigestPic, .postDigestText{min-height: 80px }
