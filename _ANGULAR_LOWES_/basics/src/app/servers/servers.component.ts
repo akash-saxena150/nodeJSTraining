@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   serverCreatedStatus = "Waiting to create a server";
+  signUpStatus = false;
   serverName = "Waiting for name";
+  serverList=[
+    {name: 'Server test'},
+    {name: 'Server Andromeda'}
+  ]
   constructor() { }
 
   ngOnInit() {
@@ -16,10 +21,16 @@ export class ServersComponent implements OnInit {
     console.log("event",<HTMLInputElement>event.target);
     this.serverName = (<HTMLInputElement>event.target).value;
   }
+  toggleSignUpStatus(){
+    this.signUpStatus = !this.signUpStatus
+  }
+  deleteServer(indx){
+    console.log(indx);
+    this.serverList.splice(indx, 1);
+  }
   createServer(e){
-    console.log(e);
-    this.serverName = "Andromeda"
     this.serverCreatedStatus = "Server created";
+    this.serverList.push({name: this.serverName});
   }
 
 }

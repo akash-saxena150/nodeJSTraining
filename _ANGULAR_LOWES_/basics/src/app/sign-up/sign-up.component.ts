@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
     mobile: 12345,
     pass: ''
   }
+
   constructor() {}
   register(){
     console.log(this.formFields);

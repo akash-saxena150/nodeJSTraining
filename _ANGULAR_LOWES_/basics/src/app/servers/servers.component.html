@@ -1,12 +1,17 @@
 <div fxLayout="column" fxLayoutAlign="start stretch">
-    <div fxFlexAlign="center">
+    <div fxFlexAlign="stretch">
         <h1 class="header">List of servers</h1>
+        <button mat-raised-button color="primary" (click)="toggleSignUpStatus()">{{!signUpStatus?'Sign Up':'Hide'}}</button>
     </div>
-    <div fxFlexAlign="stretch" class="serverList">
-        <app-server></app-server>
-        <app-server></app-server>
-        <app-server></app-server>
+    <div fxLayout="row" fxLayout.xs="column" fxFlexAlign="stretch">
+        <div fxFlexAlign="start" fxFlexAlign.xs="stretch" fxFlex="40%" class="serverList">
+            <app-server *ngFor = "let server of serverList; index as i" (click)="deleteServer(i)"></app-server>
+        </div>
+        <div fxFlexAlign="start" fxFlex="60%" class="serverList">
+            A generic description div
+        </div>
     </div>
+    
     <div fxFlexAlign="stretch">
         <p>{{serverCreatedStatus}}</p>
         <hr/>
@@ -15,9 +20,12 @@
             <!-- <input placeholder="Server name" value="" (input)="onInpUpdate($event)"> -->
             <input placeholder="Server name" value="" [(ngModel)]="serverName">
         </div>
-        <button mat-raised-button color="primary" (dblclick)="createServer($event)">Add server</button>
+        <button mat-raised-button color="secondary" (click)="createServer($event)">Add server</button>
     </div>
-    <div fxFlexAlign="center">
+    <div fxFlexAlign="center" *ngIf="signUpStatus; else signUpFalse">
         <app-sign-up></app-sign-up>
     </div>
+    <ng-template #signUpFalse>
+        <p>Click on the sign up button to sign up</p>
+    </ng-template>
 </div>
