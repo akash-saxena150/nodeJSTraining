@@ -10,7 +10,7 @@
     <div fxFlexAlign="stretch" id="contentContainer" fxFlexFill>
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch" fxLayoutGap="20px">
             <div fxFlexAlign="start" fxFlexAlign.xs="stretch" fxFlex="40%" class="postList">
-            <mat-card class="post" *ngFor = "let post of data" fxFlexAlign="stretch">
+            <mat-card class="post" *ngFor = "let post of data; index as i" fxFlexAlign="stretch" (click)="currIndx = i">
                 <mat-card-header>
                     <div mat-card-avatar class="postDigestPic">
                         <img [src]="post.img">
@@ -19,52 +19,20 @@
                     <mat-card-subtitle>{{post.description.substring(0,15)+'...'}}</mat-card-subtitle>
                 </mat-card-header>
             </mat-card> 
-            
-                <!-- <div *ngFor = "let post of data" fxLayout="row" fxLayoutAlign="start stretch">
-                    <div fxFlexAlign="start" fxFlex="30%" class="postDigestPic">
-                        <img [src]="post.img">
-                    </div>
-                    <div fxFlexAlign="start" fxFlex="70%" class="postDigestText">
-                        <div fxLayout="column" fxLayoutAlign="start stretch">
-                            <div fxFlexAlign="stretch">
-                                <h3>{{post.title}}</h3>
-                            </div>
-                            <div fxFlexAlign="stretch">
-                                <p>{{post.description.substring(0,15)+'...'}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div fxFlexAlign="start" fxFlex="60%" class="content">
                 <mat-card class="example-card">
                     <mat-card-header>
-                        <mat-card-title>Shiba Inu</mat-card-title>
+                        <mat-card-title>{{data[currIndx].title}}</mat-card-title>
                     </mat-card-header>
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" class="bigImage">
+                    <img mat-card-image [src]="data[currIndx].img" alt="Photo of a Shiba Inu" class="bigImage">
                     <mat-card-content>
                         <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
+                        {{data[currIndx].description}}
                         </p>
                     </mat-card-content>
                     </mat-card>
-                <!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
-                    <div fxFlexAlign="start" fxFlexAlign.xs="stretch" fxFlex="30%" class="postDigestPic">
-                        Picture
-                    </div>
-                    <div fxFlexAlign="start" fxFlex="70%" class="postDigestText">
-                        <div fxLayout="column" fxLayoutAlign="start stretch">
-                            <div fxFlexAlign="stretch">
-                                <h3>Title</h3>
-                            </div>
-                            <div fxFlexAlign="stretch">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                
                 
             </div>
 
