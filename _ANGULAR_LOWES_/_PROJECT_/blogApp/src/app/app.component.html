@@ -1,4 +1,4 @@
-<div fxLayout="column" class="mainContainer" fxLayoutAlign="start stretch">
+<div fxLayout="column" class="mainContainer" fxFlexFill>
     <div fxFlexAlign="stretch" id="header">
         <ul class="topMenu">
             <li>Home</li>
@@ -7,27 +7,50 @@
         </ul>
         <hr/>
     </div>
-    <div fxFlexAlign="stretch" id="contentContainer">
-        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+    <div fxFlexAlign="stretch" id="contentContainer" fxFlexFill>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch" fxLayoutGap="20px">
             <div fxFlexAlign="start" fxFlexAlign.xs="stretch" fxFlex="40%" class="postList">
-                <div fxLayout="row" fxLayoutAlign="start stretch">
+            <mat-card class="post" *ngFor = "let post of data" fxFlexAlign="stretch">
+                <mat-card-header>
+                    <div mat-card-avatar class="postDigestPic">
+                        <img [src]="post.img">
+                    </div>
+                    <mat-card-title>{{post.title}}</mat-card-title>
+                    <mat-card-subtitle>{{post.description.substring(0,15)+'...'}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card> 
+            
+                <!-- <div *ngFor = "let post of data" fxLayout="row" fxLayoutAlign="start stretch">
                     <div fxFlexAlign="start" fxFlex="30%" class="postDigestPic">
-                        Picture
+                        <img [src]="post.img">
                     </div>
                     <div fxFlexAlign="start" fxFlex="70%" class="postDigestText">
                         <div fxLayout="column" fxLayoutAlign="start stretch">
                             <div fxFlexAlign="stretch">
-                                <h3>Title</h3>
+                                <h3>{{post.title}}</h3>
                             </div>
                             <div fxFlexAlign="stretch">
-                                <p>I am the description ...</p>
+                                <p>{{post.description.substring(0,15)+'...'}}</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div fxFlexAlign="start" fxFlex="60%" class="content">
-                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>Shiba Inu</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" class="bigImage">
+                    <mat-card-content>
+                        <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                        </p>
+                    </mat-card-content>
+                    </mat-card>
+                <!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
                     <div fxFlexAlign="start" fxFlexAlign.xs="stretch" fxFlex="30%" class="postDigestPic">
                         Picture
                     </div>
@@ -41,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
 

@@ -8,6 +8,7 @@ import data from "./data";
 })
 export class AppComponent {
   title = 'blogApp';
+  data = data;
   constructor(){
     console.log(data);
   }
