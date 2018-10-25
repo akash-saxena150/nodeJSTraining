@@ -1,14 +1,3 @@
-.topMenu{list-style: none; padding: 0; margin: 0}
-.topMenu>li{display: inline-block; vertical-align: middle; padding: 5px 10px; margin: 5px; background: #2263cc; color: #fff; border-radius: 5px}
 .mainContainer{margin: 0}
-#header{ padding: 5px 10px}
-#footer{padding: 5px 10px; background: #f1f1f1; margin-top: 10px}
 .postList{padding: 10px;}
-.post{margin-bottom: 10px}
-.content{padding: 10px; }
-.postDigestPic{background: #c9d3e2; overflow: hidden}
-.postDigestPic img{max-height: 100%; }
-.postDigestText{background: #fcfcfc}
-.postDigestText p{margin: 0; padding: 5px}
-.bigImage{max-width: 500px;}
 

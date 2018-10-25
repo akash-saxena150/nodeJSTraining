@@ -1,3 +1,11 @@
-<p>
-  content works!
-</p>
+<mat-card class="example-card">
+  <mat-card-header>
+      <mat-card-title>{{data.title}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="data.img" alt="Photo of a Shiba Inu" class="bigImage">
+  <mat-card-content>
+      <p>
+      {{data.description}}
+      </p>
+  </mat-card-content>
+</mat-card>

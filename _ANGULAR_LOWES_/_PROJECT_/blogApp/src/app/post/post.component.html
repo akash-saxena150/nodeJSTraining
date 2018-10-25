@@ -1,3 +1,9 @@
-<p>
-  post works!
-</p>
+<mat-card fxFlexAlign="stretch" class="post" >
+    <mat-card-header>
+        <div mat-card-avatar class="postDigestPic">
+            <img [src]="post.img">
+        </div>
+        <mat-card-title>{{post.title}}</mat-card-title>
+        <mat-card-subtitle>{{post.description.substring(0,15)+'...'}}</mat-card-subtitle>
+    </mat-card-header>
+</mat-card>

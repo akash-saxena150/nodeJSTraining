@@ -1,44 +1,17 @@
 <div fxLayout="column" class="mainContainer" fxFlexFill>
-    <div fxFlexAlign="stretch" id="header">
-        <ul class="topMenu">
-            <li>Home</li>
-            <li>Sign up</li>
-            <li>Add post</li>
-        </ul>
-        <hr/>
-    </div>
+    <app-header></app-header>
     <div fxFlexAlign="stretch" id="contentContainer" fxFlexFill>
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch" fxLayoutGap="20px">
             <div fxFlexAlign="start" fxFlexAlign.xs="stretch" fxFlex="40%" class="postList">
-            <mat-card class="post" *ngFor = "let post of data; index as i" fxFlexAlign="stretch" (click)="currIndx = i">
-                <mat-card-header>
-                    <div mat-card-avatar class="postDigestPic">
-                        <img [src]="post.img">
-                    </div>
-                    <mat-card-title>{{post.title}}</mat-card-title>
-                    <mat-card-subtitle>{{post.description.substring(0,15)+'...'}}</mat-card-subtitle>
-                </mat-card-header>
-            </mat-card> 
+                <div *ngFor = "let post of data; index as i" (click)="currIndx = i">
+                    <app-post [post] = post></app-post>
+                </div>
             </div>
             <div fxFlexAlign="start" fxFlex="60%" class="content">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                        <mat-card-title>{{data[currIndx].title}}</mat-card-title>
-                    </mat-card-header>
-                    <img mat-card-image [src]="data[currIndx].img" alt="Photo of a Shiba Inu" class="bigImage">
-                    <mat-card-content>
-                        <p>
-                        {{data[currIndx].description}}
-                        </p>
-                    </mat-card-content>
-                    </mat-card>
-                
-                
+                <app-content [data]=data[currIndx]></app-content>
             </div>
 
         </div>
     </div>
-    <div fxFlexAlign="stretch" id="footer">
-        All rights reserved
-    </div>
+    <app-footer></app-footer>
 </div>
