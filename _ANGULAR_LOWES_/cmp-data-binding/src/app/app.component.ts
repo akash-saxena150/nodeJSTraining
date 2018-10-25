@@ -10,7 +10,9 @@ export class AppComponent {
     {type: 'server', name: 'test server01', content: 'This is a test server'},
     {type: 'blueprint', name: 'Blueprint 01', content: 'This is a blueprint'}
   ];
-  
+  onDeleteServer(){
+    this.serverElements.splice(0,1);
+  }
 
   onServerAdded(serverData:{serverName: string, serverContent: string}) {
     console.log("Event gathered")
