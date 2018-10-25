@@ -1,4 +1,6 @@
 <div class="container">
+  <app-cockpit (serverCreated)="onServerAdded($event)"
+  (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
    <!-- <div class="row">
     <div class="col-xs-12">
       <p>Add new Servers or blueprints!</p>
