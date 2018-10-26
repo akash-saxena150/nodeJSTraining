@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-servers',
@@ -9,10 +10,13 @@ import { ServersService } from './servers.service';
 export class ServersComponent implements OnInit {
   private servers: {id: number, name: string, status: string}[] = [];
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
+  }
+  goToServer(){
+    this.router.navigate(['servers', 1], {queryParams: {edit: '1'}, fragment: 'loading'})
   }
 
 }

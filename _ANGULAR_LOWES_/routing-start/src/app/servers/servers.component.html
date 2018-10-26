@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
+    <a routerLink="/servers">Open server</a>
     <div class="list-group">
       <a
-        href="#"
+        [routerLink]="['/servers', i]"
         class="list-group-item"
-        *ngFor="let server of servers">
+        *ngFor="let server of servers; index as i">
         {{ server.name }}
       </a>
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <app-edit-server></app-edit-server>
-    <hr>
-    <app-server></app-server>
+    <router-outlet></router-outlet>
   </div>
+   <button class="btn btn-primary" (click)="goToServer()">Open server</button> 
 </div>
 
