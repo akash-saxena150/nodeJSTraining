@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  value=5;
   numbers = [1, 2, 3, 4, 5];
   onlyOdd = false;
 }

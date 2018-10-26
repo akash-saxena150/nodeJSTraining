@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {accountsService} from './accounts.service';
+//import {loggingService} from './logging.service';
 
 @Component({
   selector: 'app-root',
@@ -6,26 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  accounts = [
-    {
-      name: 'Master Account',
-      status: 'active'
-    },
-    {
-      name: 'Testaccount',
-      status: 'inactive'
-    },
-    {
-      name: 'Hidden Account',
-      status: 'unknown'
-    }
-  ];
-
-  onAccountAdded(newAccount: {name: string, status: string}) {
-    this.accounts.push(newAccount);
+  constructor(private accountsService: accountsService){
   }
+  accounts = this.accountsService.accounts;
+  // onAccountAdded(newAccount: {name: string, status: string}) {
+  //   this.accountsService.onAccountAdded(newAccount.name, newAccount.status);
+  //   this.logging.logStatus(newAccount.status);
 
-  onStatusChanged(updateInfo: {id: number, newStatus: string}) {
-    this.accounts[updateInfo.id].status = updateInfo.newStatus;
-  }
+  // }
+
+  // onStatusChanged(updateInfo: {id: number, newStatus: string}) {
+  //   this.accountsService.onStatusChanged(updateInfo.id, updateInfo.newStatus);
+  //   this.logging.logStatus(updateInfo.newStatus);
+  // }
 }
