@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import {apiService} from '../api.service'
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {apiService} from '../api.service';
+
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
-  //name = new FormControl('Akash');
+
+  //name = new FormControl('');
   // profileForm = new FormGroup({
   //   firstName: new FormControl(''),
   //   lastName: new FormControl(''),
@@ -18,12 +20,10 @@ export class SignupFormComponent implements OnInit {
   //     zip: new FormControl('')
   //   })
   // });
-  data: {}
-  constructor(private fb: FormBuilder, private apiService: apiService) { 
-    //this.formData.name.setValue('Akash'); 
-  }
+  constructor(private fb: FormBuilder, private apiService: apiService) { }
   profileForm = this.fb.group({
-    firstName: ['', Validators.required],
+    firstName: [''],
+    middleName: [''],
     lastName: [''],
     address: this.fb.group({
       street: [''],
@@ -33,22 +33,19 @@ export class SignupFormComponent implements OnInit {
     })
   });
   updateName(key){
-    // this.profileForm.setValue({
-    //   firstName: "Akashay",
-    //   lastName: ''
-    // });
-    this.profileForm.patchValue({
-      firstName: "Akashay"
-    })
+    this.profileForm.patchValue(
+      {
+        firstName: "Akash"
+      }
+    );
   }
   onSubmit(){
-    console.log(this.profileForm)
+    console.log(this.profileForm.value)
   }
   getLocation(){
-    this.apiService.getLocation('https://ipinfo.io/?token=22065f6a076bdf')
+    this.apiService.getLocation('https://ipinasdg')
     .subscribe((data: {}) => {
       console.log(data);
-      this.data = {...data};
     });
   }
   ngOnInit() {

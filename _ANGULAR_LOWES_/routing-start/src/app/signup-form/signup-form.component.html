@@ -1,8 +1,7 @@
 <!-- <label>
   Name:
   <input type="text" [formControl]="name">
-</label>-->
-<button (click)="updateName()">Update name</button> 
+</label> -->
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label>
     First Name:
@@ -14,22 +13,18 @@
   </label>
   <div formGroupName="address">
     <h3>Address</h3>
-
     <label>
       Street:
       <input type="text" formControlName="street">
     </label>
-
     <label>
       City:
       <input type="text" formControlName="city">
-    </label>
-    
+    </label>    
     <label>
       State:
       <input type="text" formControlName="state">
     </label>
-
     <label>
       Zip Code:
       <input type="text" formControlName="zip">
@@ -39,3 +34,5 @@
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 
 </form>
+<button (click)="updateName()">Update name</button> 
+<button (click)="getLocation()">Get Location</button> 
