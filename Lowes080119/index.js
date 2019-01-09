@@ -1,3 +1,2 @@
-var greet = require('./greet');
-console.log(greet);
-greet();
+var myData = require('./myData.json');
+console.log(myData[0].name);
