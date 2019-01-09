@@ -1,8 +1,9 @@
-var obj = {
-    name: 'Akash'
+function test(exports){
+    exports.name = "Akash";
 }
-obj.age = 34;
-obj = {
-    company: 'GetSetGo Fitness'
-};
-console.log(obj);
+
+var module = {
+    exports:{age: 34, company: "GetSetGo Fitness"}
+}
+test(module.exports);
+console.log(module.exports);
