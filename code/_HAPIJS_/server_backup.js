@@ -79,15 +79,19 @@ server.route({
     path: '/api/employees/{id}',
     method: 'PUT',
     handler(req, reply){
-        if(!req.params.id)
-            {
-                return reply("Did you forget to provide the id?").code(400);
-            }
-        const employees = client.execute("SELECT employee_id, name, team, username FROM employees WHERE employee_id=?",[req.params.id])
-        .then((data)=>reply.response(data).code(200))
+        const employees = client.execute("SELECT * WHERE employee_id=?",[req.params.id])
+        .then((data)=>{
+            let tempData = {};
+            tempData.name = req.payload.name || data.rows.name;
+            tempData.username = req.payload.username || data.rows.username;
+            tempData.team = req.payload.team || data.rows.team;
+            
+            //reply.response(data).code(200)
+        })
         .catch(err => reply(`An error occurred: ${err}`))
     }
 })
+
 //Start the server
 server.start(err=>{//Let's discuss the arrow function
     if(err)

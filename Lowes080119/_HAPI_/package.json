@@ -9,7 +9,8 @@
   "author": "Akash",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^16.7.0",
-    "cassandra-driver": "^4.0.0"
+    "cassandra-driver": "^4.0.0",
+    "handlebars": "^4.0.12",
+    "hapi": "^16.7.0"
   }
 }
