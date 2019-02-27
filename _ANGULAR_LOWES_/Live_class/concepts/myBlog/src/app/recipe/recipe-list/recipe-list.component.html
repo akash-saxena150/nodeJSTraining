@@ -1,0 +1,14 @@
+<!-- <app-recipe-item *ngFor = "let recipe of recipeList"></app-recipe-item> -->
+<ul class="recipeList">
+    <li *ngFor = "let recipe of recipeList">
+        <div fxLayout="row" fxLayoutAlign="start stretch" class="recipeListContainer">
+            <div fxFlex="70%" fxLayout="column">
+                <h3>{{recipe.title}}</h3>
+                <div>{{recipe.content}}</div>    
+            </div>
+            <div fxFlex="30%">
+                <img [src]="recipe.imgPath" class="recipeImg"/>
+            </div>
+        </div>
+    </li>
+</ul>

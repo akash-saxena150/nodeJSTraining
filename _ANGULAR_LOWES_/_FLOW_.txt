@@ -1,0 +1,66 @@
+//basics
+1. Component breakdown
+2. Creating a new component manually (talk about decorator)
+3. Understanding the role of AppModule and Component declaration
+4. Using custom components
+5. Creating component with CLI & nesting components
+6. Working with component templates
+7. Working with component styles
+8. Fully understand component selectors - Attribute selector[], class selector .<name>
+9. Databinding
+10. String interpolation
+11. Property binding
+12. Property binding vs string interpolation
+13. Event binding
+14. Passing and usinng data with event binding
+15. Two-way data binding
+16. Combining all forms of databinding
+17. Understanding directives
+18. Using ngIf to output data conditionally
+19. Enhancing ngIf with else conditionn
+20. Styling elements dynamically with ngStyle
+21. Applying css classes dynamically with ngClass
+22. Outputting list with ngFor
+23. Getting index when using ngFor
+
+//course project
+1. Project introduction
+2. Planning the app
+3. Installing the libraries
+4. Setting up the application
+5. Creating the components
+6. Using the components
+7. Adding a navigation bar
+8. Creating a recipe model
+9. Adding content to the recipes components
+10. Outputting a list of recipes with ngFor
+11. Displaying recipe details
+12. Working on shoppingList component
+13. Creating an ingredient model
+14. Creating and outputting shopping list
+Adding shopping list edit section
+
+//Component deep dive (start with cmp-data-binding)
+1. Splitting apps into components
+2. Property and event binding overview
+3. Binding to custom properties
+4. Assigning an alias to custom properties
+5. Binding to custom events
+6. Assigning an alias to custom events
+7. Custom property and eveent binding summary
+8. Understanding view encapsulation
+9. More on view encapsulation
+10. Using locaal references in templates
+11. Getting access to the template & dom with @ViewChild
+12. Projecting content into components with ng-content
+13. Understanding component lifecycle
+14. Seeing lifecycle hooks in action
+15. Lifecycle hooks and template access
+16. Getting access to ng-content with @ContentChild
+
+//Course project
+1. Adding navigation with event binding and ngIf
+2. Passing recipe data with property binding
+3. Passing data with event and property binding (combined)
+4. Allowing user to add ingredients to shopping list
+

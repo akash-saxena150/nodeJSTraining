@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="stretch">
+    <div>
+        <mat-form-field class="example-full-width">
+            <!-- <input matInput placeholder="Server name" value="" (input)="onInpUpdate($event)"> -->
+            <input matInput placeholder="Server name" value="" [(ngModel)]="serverName">
+        </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="addServer()">Add server</button>
+    </div>
+    <div *ngIf="serverName.length>0 else valueEmpty">Server name: {{serverName}}</div>    
+    <ng-template #valueEmpty>
+        <div class="test">{{serverMessage}}</div> 
+    </ng-template>   
+    <div>
+        <h2>List of servers</h2>
+    </div>
+    <div>
+        <app-server *ngFor = "let server of serverList; index as i" (click)="deleteServer(i)"></app-server>
+    </div>
+</div>
+
+
