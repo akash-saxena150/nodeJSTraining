@@ -1,5 +1,5 @@
-<!-- <app-recipe-item *ngFor = "let recipe of recipeList"></app-recipe-item> -->
-<ul class="recipeList">
+ <app-recipe-item *ngFor = "let recipe of recipeList" [recipe]="recipe" (click)="onRecipeChange(recipe)"></app-recipe-item> 
+<!-- <ul class="recipeList">
     <li *ngFor = "let recipe of recipeList">
         <div fxLayout="row" fxLayoutAlign="start stretch" class="recipeListContainer">
             <div fxFlex="70%" fxLayout="column">
@@ -11,4 +11,4 @@
             </div>
         </div>
     </li>
-</ul>
+</ul> -->
