@@ -64,3 +64,49 @@ Adding shopping list edit section
 3. Passing data with event and property binding (combined)
 4. Allowing user to add ingredients to shopping list
 
+//Directives
+Building a basic directive
+
+//Services and dependency injection
+1. Why do you need services
+2. Creating a logging service
+3. Injecting the logging service into components
+4. Creating data services
+5. Understandint hierarchical injector
+6. How many instances of service should it be?
+7. Injecting services into services
+8. Using services for cross component communication
+
+//Course project
+1. Setting up the services
+2. Managing recipes in recipe services
+3. Adding the shopping list service
+4. Using services for pushing data from A to B
+5. Adding ingredients to recipes
+6. Passing ingredients from recipes to shopping list
+
+//Routing
+1. Setting up and loading routes
+2. Navigating with router lilnks
+3. Understanding navigation paths
+4. Styling active router links
+5. navigating programatically
+6. Using relative paths in programative navigation
+7. Passing parameters to routes
+8. Fetching route parameters
+9. Passing query parameters and Fragments
+10. Retrieving query parameters and fragments
+
+//Http requests
+1. Settig up firebase
+2. Sending a post reequest
+3. Adjusting request headers
+4. Sending get requests
+5. Sending put requests
+6. Transform responses easily with Observable Operators (map())
+7. Using returned data
+8. Catching http errors
+9. Using async pipe with http requests
+
+//Building and deploying an angular app
+

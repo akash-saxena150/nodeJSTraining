@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = 'Akash';
+  activeScreen = 'recipe';
+  onScreenChange(screen: {activeScreen: string}){
+    this.activeScreen = screen.activeScreen;
+  }
 }

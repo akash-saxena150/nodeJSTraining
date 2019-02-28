@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div fxLayout="column" fxLayoutAlign="start stretch">
-  <app-header></app-header>
+  <app-header (screenChange) = "onScreenChange($event)"></app-header>
   <div class="content">
-    <app-recipe></app-recipe>
-    <app-shopping-list></app-shopping-list>
+    <app-recipe *ngIf = "activeScreen === 'recipe'"></app-recipe>
+    <app-shopping-list *ngIf = "activeScreen === 'shopping'"></app-shopping-list>
   </div>
 </div>
 
