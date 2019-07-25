@@ -1,11 +1,23 @@
-<h1>Shopping List</h1>
-<div fxLayout="column" fxLayoutAlign="start stretch">
-  <div>Create ingredient panel</div>
-  <div>
-    <ul>
-      <li *ngFor = "let ingredient of ingredientList" class="ingredientItem">
-        {{ingredient.name}} (Rs. {{ingredient.price}}/-)
-      </li>
-    </ul>
+<div class="shoppingListContainer">
+  <h1>Shopping List</h1>
+  <div fxLayout="column" fxLayoutAlign="start stretch">
+    <div fxLayout="column">
+      <div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" value="" [(ngModel)] = "ingredientName">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row">
+          <button mat-raised-button color="primary" (click)="onIngredientAdded()">Add</button>
+          <button mat-raised-button color="accent">Remove</button>
+      </div>
+    </div>
+    <div>
+      <ul>
+        <li *ngFor = "let ingredient of ingredientList" class="ingredientItem">
+          {{ingredient.name}} (Rs. {{ingredient.price}}/-)
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

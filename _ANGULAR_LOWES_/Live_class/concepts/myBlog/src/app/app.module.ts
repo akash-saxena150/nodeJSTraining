@@ -13,6 +13,7 @@ import {MatButtonModule, MatInputModule, MatFormFieldModule, MatToolbarModule} f
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './header/header.component';
+import {ShoppingListService} from './shoppingList.service'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { HeaderComponent } from './header/header.component';
     MatToolbarModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
