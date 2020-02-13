@@ -1,0 +1,21 @@
+.base {
+  text-align: center;
+  padding: 20px
+}
+.contentContainer{
+  width: 50%;
+  margin: 0 auto;
+  text-align: left
+}
+button{
+  border: 1px solid #ccc;
+  border-radius: '5px';
+  background: none;
+  padding: 10px
+}
+input{
+  width: 100%;
+  border: 1px solid #ccc;
+  background: none;
+  padding: 10px
+}
