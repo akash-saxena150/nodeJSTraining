@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayoutAlign="start" class="coachesContainer">
+        <div fxFlex="20%">
+            <div *ngFor="let coach of coachesList; let i = index" (click)="activeCoach= i">
+                <app-coach-preview></app-coach-preview>
+            </div>
+        </div>
+        <div fxFlex="80%">
+            <!-- <app-coach-detail></app-coach-detail> -->
+            <div class="coachDetailContainer">
+                <div class="coachImg">
+                    <img [src]="getImg()"/>
+                </div>
+                <h2>{{coachesList[activeCoach].name}}</h2>
+                <p>
+                    {{coachesList[activeCoach].tagline}}
+                </p>
+            </div>
+        </div>
+</div>
