@@ -4,7 +4,7 @@ import Header from './header/header.component';
 import Home from './home/home.component';
 import Coaches from './coaches/coaches.component';
 import Signin from './signin/signin.component';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
@@ -34,10 +34,12 @@ class App extends Component {
               {activeRoute===2 && <Signin></Signin>}
             </Grid> */}
             {/* <Route exact path="/home" render={()=><Auth><Home/></Auth>}/> */}
-            <Route exact path="/" component={Home}/>
-            <Route path="/coaches/:id?" component = {Coaches}/>
-            <Route path="/signin" component={Signin}/>
-              
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/coaches/:id?" component = {Coaches}/>
+              <Route path="/signin" component={Signin}/>
+              <Route path="*" render={()=><div>Uh oh! You lost?</div>}/>  
+            </Switch>
           </Grid>
         </div>
       </Router>

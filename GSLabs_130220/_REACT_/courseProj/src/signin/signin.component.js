@@ -1,47 +1,60 @@
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import {getHt} from '../services';
-import Button from '@material-ui/core/Button';
+import {getHt, fakeLogin} from '../services';
+
+import FormGenerator from '../form-generator/form-generator-component'
 let ht = getHt()-50;
 class Signin extends Component{
     constructor(props){
         super(props);
         this.state = {
-            login: {
-                email: '', pass: ''
-            }
+            login: [
+                {
+                    key: 'email',
+                    type: 'email',
+                    val: '',
+                    valid: true,
+                    required: true,
+                    errMsg: 'Invalid email. Please check'
+                },
+                {
+                    key: 'pass',
+                    type: 'password',
+                    val: '',
+                    valid: true,
+                    required: true,
+                    errMsg: 'Invalid password. Please check'
+                }
+            ],
+            formSubmitted: false,
+            formErr: false,
+            errMsg: ''
         }
     }
-    changeInp(e, key){
-        let tempObj = Object.assign(this.state.login);
-        tempObj[key] = e.target.value;
-        this.setState({login: tempObj});
-    }
-    submitForm(e){
-        e.preventDefault();
-        console.log(this.state.login)
+    formSubmit(data){
+        console.log(data);
+        fakeLogin(
+            data[0].val, 
+            data[1].val, 
+            (auth)=>{
+                localStorage.setItem('token', auth.auth);
+                this.setState({formSubmitted: true, login: data})
+            },
+            (err)=>{
+                console.log("err",err);
+                this.setState({formSubmitted: false, formErr: true, errMsg: err})
+            }
+            )
+        
     }
     render(){
-        let {login} = this.state;
+        let {login, formSubmitted, formErr, errMsg} = this.state;
         return (
-            <form onSubmit={(e)=>{this.submitForm(e)}}>
-            <Grid container style={{height: ht}} alignItems="center" justify="center" direction="column">
-                <Grid item>
-                    <h2>Sign in</h2>
-                </Grid>
-                <Grid item>
-                    <input type="text" value={login.email} onChange={(e)=>{this.changeInp(e, 'email')}}/>
-                </Grid>
-                <Grid item>
-                    <input type="password" value={login.pass} onChange={(e)=>{this.changeInp(e, 'pass')}}/>
-                </Grid>
-                <Grid item>
-                    <Button type="submit" variant="contained" color="primary">
-                        Signin
-                    </Button>
-                </Grid>
-            </Grid>
-            </form>
+            <div>
+                {!formSubmitted && !formErr && <FormGenerator successCb = {this.formSubmit.bind(this)} formData={login}></FormGenerator>}
+                {formSubmitted && !formErr && <div>Form submitted successfully! What next?</div>}
+                {formErr && <div>{errMsg}</div>}
+            </div>
         )
     }
 }
