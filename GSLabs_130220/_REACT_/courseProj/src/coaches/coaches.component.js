@@ -8,7 +8,25 @@ let docHt = getHt()-100;
 class Coaches extends Component{
     constructor(props){
         super(props);
-        this.state={activeCoach: 0}
+        this.state={activeCoach: this.props.match.params.id||0}
+        console.log("History",this.props);
+    }
+    redirectCoach(indx){
+        console.log(this.props);
+        this.props.history.push(`/coaches/${indx}`)
+    }
+    shouldComponentUpdate(nxtProps, nxtState){
+        console.log("Should component update")
+        console.log("props",nxtProps);
+        console.log("state", nxtState);
+        console.log(this.state.activeCoach, this.props.match.params.id)
+        if(!(this.state.activeCoach===nxtProps.match.params.id))
+        {
+            console.log("Changing ...")
+            this.setState({activeCoach: this.props.match.params.id});
+            return true
+        }
+        return false;
     }
     render(){
         let {activeCoach} = this.state;
@@ -17,7 +35,7 @@ class Coaches extends Component{
                 <Grid item xs={3} style={{borderRight: '1px solid #ccc'}}>
                     {CoachList.map((coach, indx)=>{
                         return (
-                            <div onClick={()=>{this.setState({activeCoach: indx})}}>
+                            <div key={`${indx}-${coach.name}`} onClick={()=>{this.redirectCoach(indx)}}>
                                 <CoachPreview name= {coach.name} profile_pic={coach.profile_pic}></CoachPreview>
                             </div>
                         )

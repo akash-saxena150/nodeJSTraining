@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import {getImg} from '../services'
+import {getImg} from '../services';
+import WithPartition from '../with-partition/with-partition.component'
 class CoachPreview extends Component{
     
     render(){
@@ -13,4 +14,5 @@ class CoachPreview extends Component{
         </Grid>)
     }
 }
+//export default WithPartition(CoachPreview);
 export default CoachPreview;

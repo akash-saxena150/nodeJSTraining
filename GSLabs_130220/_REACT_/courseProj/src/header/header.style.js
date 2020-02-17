@@ -6,5 +6,6 @@ export default {
     menuItem:{
         cursor: 'pointer'
     },
+    menuItemActive:{cursor: 'pointer', borderBottom: '2px solid red'}
 
 }

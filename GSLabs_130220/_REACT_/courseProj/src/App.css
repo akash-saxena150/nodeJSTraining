@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.activeLink{
+  border-bottom:2px solid red
+}
+input[type="text"]{
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc
+}
