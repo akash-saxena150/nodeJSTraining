@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import {getHt, fakeLogin} from '../services';
+import {getHt, callAPI, setStorage} from '../services';
 
 import FormGenerator from '../form-generator/form-generator-component'
 let ht = getHt()-50;
@@ -28,23 +28,31 @@ class Signin extends Component{
             ],
             formSubmitted: false,
             formErr: false,
-            errMsg: ''
+            errMsg: '',
         }
     }
     formSubmit(data){
+        let {login} = this.state;
         console.log(data);
-        fakeLogin(
-            data[0].val, 
-            data[1].val, 
-            (auth)=>{
-                localStorage.setItem('token', auth.auth);
-                this.setState({formSubmitted: true, login: data})
+        let loginObj = {
+            user_email: data[0].val,
+            user_password: data[1].val,
+            user_type: 'client'
+        };
+        callAPI(
+            'signin',
+            'post',
+            (response)=>{
+                console.log(response);
+                setStorage('auth', response.data.token)
+                this.props.history.push('userdashboard')
             },
             (err)=>{
-                console.log("err",err);
-                this.setState({formSubmitted: false, formErr: true, errMsg: err})
-            }
-            )
+                console.log("Error",err);
+                this.setState({errMsg: "Invalid credentials", formErr: true})
+            },
+            loginObj
+        )
         
     }
     render(){

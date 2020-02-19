@@ -1,3 +1,5 @@
+import config from './config';
+const axios = require('axios');
 function getHt(){
     return document.documentElement.clientHeight
 }
@@ -19,4 +21,35 @@ function fakeLogin(e, p, success, err){
         {err("Invalid credentials")}
     }, 2000)   
 }
-export {getHt, getImg, returnRegex, fakeLogin}
+function setStorage(name, val){
+    localStorage.setItem(name, val)
+}
+function getStorage(name){
+    return localStorage.getItem(name)
+}
+function returnURL(api){
+    return `${config.baseURL}${config.apis[api]}`
+}
+function callAPI(api, type, success, err, data){
+    if(type==='get')
+    {
+        axios.get(`${returnURL(api)}${data?'/'+data:''}`)
+        .then(function (response) {
+            success(response);
+        })
+        .catch(function (error) {
+            err(error);
+        })
+    }
+    else{
+        axios.post(returnURL(api), data)
+        .then(function (response) {
+            success(response);
+        })
+        .catch(function (error) {
+            err(error);
+        })
+    }
+    
+}
+export {getHt, getImg, returnRegex, fakeLogin, returnURL, callAPI, setStorage, getStorage}

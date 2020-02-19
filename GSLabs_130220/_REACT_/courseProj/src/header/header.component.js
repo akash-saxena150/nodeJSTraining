@@ -8,7 +8,7 @@ class Header extends Component{
         
     }
     render(){
-        console.log(this.props);
+        let {loginStatus} = this.props;
         return (
             <Grid container direction="row" justify="space-between" style={Styles.headerContainer}>
                 <Grid item xs={8}>
@@ -22,7 +22,9 @@ class Header extends Component{
                     </Grid>
                 </Grid>
                 <Grid item xs={4} style={Styles.menuItem}>
-                    <NavLink to="/signin" activeClassName="activeLink">Signin</NavLink>
+                    {!loginStatus && <NavLink to="/signin" activeClassName="activeLink">Signin</NavLink>}
+                    {loginStatus && <NavLink to="/userdashboard" activeClassName="activeLink">Akash</NavLink>}
+
                 </Grid>
             </Grid>
         )

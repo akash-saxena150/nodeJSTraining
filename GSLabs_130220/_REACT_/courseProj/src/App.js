@@ -4,6 +4,7 @@ import Header from './header/header.component';
 import Home from './home/home.component';
 import Coaches from './coaches/coaches.component';
 import Signin from './signin/signin.component';
+import UserDashboard from './user-dashboard/user-dashboard-view';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 
@@ -11,7 +12,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      activeRoute: 1
+      activeRoute: 1,
+      loginStatus: true
     }
   }
   
@@ -22,7 +24,7 @@ class App extends Component {
         <div className="App">
           <Grid container direction="column">
             <Grid item style={{height: '50px', padding: '10px', backgroundColor: '#f1f1f1'}}>
-              <Header></Header>
+              <Header loginStatus = {this.state.loginStatus}></Header>
               
               {/* <button onClick={()=>{this.changeRoute(0)}}>Home</button>
               <button onClick={()=>{this.changeRoute(1)}}>Coaches</button>
@@ -38,6 +40,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route path="/coaches/:id?" component = {Coaches}/>
               <Route path="/signin" component={Signin}/>
+              <Route path="/userdashboard" component={UserDashboard}/>
               <Route path="*" render={()=><div>Uh oh! You lost?</div>}/>  
             </Switch>
           </Grid>
