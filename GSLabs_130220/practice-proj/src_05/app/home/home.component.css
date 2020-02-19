@@ -1,0 +1,8 @@
+.homeContainer{
+height: 600px;
+background: #ccc
+}
+.homeContent{
+    text-align: left;
+    margin-left: 100px;
+}

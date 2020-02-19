@@ -1,0 +1,44 @@
+<div fxLayout="row" fxLayoutAlign="start" class="coachesContainer">
+    <div>
+        <!-- <button (click)="changeCoach(0)">
+            Change coach 00
+        </button> -->
+        <button (click)="deleteCoach(0)">
+            Delete coach
+        </button>
+    </div>    
+    <div fxFlex="20%">
+            <div *ngFor="let coach of coachList; let i = index" (click)="this.changeActiveCoach(i)">
+                <app-coach-preview [coachData] = "coach">
+                    <p #para basicHighlight>
+                        Coach name ^
+                    </p>
+                </app-coach-preview>
+            </div>
+        </div>
+        <div fxFlex="80%">
+            <!-- <p #randomPTag appBetterHighlight [hoverColor]="'yellow'" [defaultColor]="'blue'">
+                {{coachDetailTxt}}
+            </p> -->
+            <p *appUnless = "false">Here is a coach detail</p>
+            <app-coach-detail [coach] = "coachList[activeCoach]"></app-coach-detail>
+            <!-- <div class="coachDetailContainer">
+                <div class="coachImg">
+                    <img [src]="getImg()"/>
+                </div>
+                <h2>{{coachesList[activeCoach].name}}</h2>
+                <p>
+                    {{coachesList[activeCoach].tagline}}
+                </p>
+            </div> -->
+            <div class="dropdownCollapsed" appDropdown>
+                <p>Packages</p>
+                <div class="dd">
+                    <ul>
+                        <li>Package 01</li>
+                        <li>Package 02</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>

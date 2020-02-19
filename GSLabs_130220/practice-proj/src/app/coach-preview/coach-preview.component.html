@@ -1,6 +1,9 @@
-<div>
+<div (click)="selectCoach()">
     <div class="coachImg">
         <img [src]="getImg()" alt="">
     </div>
-    <h3>{{name}}</h3>
+    <h3>{{coach.name}}</h3>
+    <!-- <div>
+        <button (click)="deleteCoach()">Delete</button>
+    </div> -->
 </div>

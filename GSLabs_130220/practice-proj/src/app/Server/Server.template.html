@@ -1,3 +1,7 @@
 <div [ngStyle]="getStyle()">
-    The server name is: <span [innerText]="name"></span>. The server is {{status}}
+    <p>The server name is: <span [innerText]="server.name"></span>. The server is {{server.status?'Online':'Offline'}}</p>
+    <div>
+        <button (click)="deleteServer(indx)">Delete server</button>
+        <button (click)="highlightServer(indx)">Highlight server</button>
+    </div>
 </div>

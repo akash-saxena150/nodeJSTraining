@@ -1,0 +1,7 @@
+.coachesContainer{
+    margin-top: 50px
+}
+.dropdownCollapsed > div.dd{
+    display: none
+}
+.open > div.dd{display: block}

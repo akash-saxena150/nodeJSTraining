@@ -1,0 +1,18 @@
+<!-- <div> -->
+  <!-- <input type="text" (input)="changeServerName($event)" [value] = "name"/> -->
+  <!-- <button [disabled] = "checkEnabled()"> -->
+  <!-- <input type="text" [(ngModel)] = "name"/> -->
+  <!-- <button (click)="serverAdded()">
+    Add server
+  </button> -->
+  <!-- <div>The server name is: {{name}}</div>
+  <div *ngIf="serverAdd">{{serverAddStatus}}</div>
+  <hr/>
+</div>
+<div>
+  <app-servers></app-servers>
+</div> -->
+<app-header (routeChanged)="onRouteChanged($event)"></app-header>
+<app-home *ngIf="currentRoute === 0" (onRouteChange)="onRouteChanged($event)"></app-home>
+<app-coaches *ngIf="currentRoute === 1"></app-coaches>
+<app-signin *ngIf="currentRoute === 2"></app-signin>

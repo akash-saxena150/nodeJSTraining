@@ -4,8 +4,26 @@
     margin-left: 50px
 }
 .coachImg{
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
     overflow: hidden;
 }
 .coachImg img{width: 100%}
+.dropdown{
+    width: 500px;
+}
+.dropdown>h2{
+    background: #cccccc;
+    padding: 5px;
+    cursor: pointer;
+}
+.dropdown h3{
+    background: #f1f1f1;
+    padding: 5px
+}
+.dropdown>.ddContent{
+display: none
+}
+.dropdown.open>.ddContent{
+    display: block;
+}

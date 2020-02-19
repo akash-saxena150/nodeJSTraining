@@ -14,7 +14,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { CoachPreviewComponent } from './coach-preview/coach-preview.component';
 import { CoachDetailComponent } from './coach-detail/coach-detail.component';
-
+import {BasicHighlight}  from './basic-highlight/basic-highlight-directive';
+import { BetterHighlightDirectiveDirective } from './better-highlight/better-highlight-directive.directive' ;
+import {ServerListService} from './serverlist-service';
+import {CoachListService} from './coachlist-service';
+import {LoggingService} from './logger-service';
+import { DropdownDirective } from './dropdown-directive/dropdown.directive';
+import { Routes, RouterModule } from '@angular/router';
+const routes:Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'coaches', component: CoachesComponent, children:[
+    {path: ':id', component: CoachDetailComponent}
+  ]},
+  {path: 'signin', component: SigninComponent},
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,16 +38,20 @@ import { CoachDetailComponent } from './coach-detail/coach-detail.component';
     SigninComponent,
     HeaderComponent,
     CoachPreviewComponent,
-    CoachDetailComponent
+    CoachDetailComponent,
+    BasicHighlight,
+    BetterHighlightDirectiveDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NoopAnimationsModule,
     FlexLayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ServerListService, CoachListService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

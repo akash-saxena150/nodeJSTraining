@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root01',
@@ -12,9 +12,18 @@ export class AppComponent {
   serverAddStatus = "No server added";
   serverAdd = false;
   currentRoute = 1;
+  ngOnInit(): void {
+    console.log("On init initialized ...")
+  }
+  constructor(){
+    console.log("Constructor initialized ...")
+  }
   serverAdded(){
     this.serverAddStatus = "A server has been added. Server name is: "+this.name;
     this.serverAdd = true;
+  }
+  onRouteChanged(event){
+    this.currentRoute = event.route;
   }
   // changeServerName(e){
   //   console.log(e.target.value);

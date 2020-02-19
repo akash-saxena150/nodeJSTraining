@@ -1,0 +1,23 @@
+<div class="container">
+  <app-cockpit 
+    (serverAdded)="onServerAdded($event)"
+    (addBlueprint) = "onBlueprintAdded($event)"
+  ></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="xs-12">
+      <div
+        class="panel panel-default"
+        *ngFor="let element01 of serverElements">
+        <app-server [serverElement] = "element01">
+            <div class="panel-body">
+                <p>
+                <strong *ngIf="element01.type === 'server'" style="color: red">{{ element01.content }}</strong>
+                <em *ngIf="element01.type === 'blueprint'">{{ element01.content }}</em>
+                </p>                
+            </div>
+        </app-server>
+      </div>
+    </div>
+  </div>
+</div>

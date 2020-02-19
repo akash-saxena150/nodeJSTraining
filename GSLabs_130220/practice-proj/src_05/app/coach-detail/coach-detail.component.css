@@ -1,0 +1,11 @@
+.coachDetailContainer{
+    height: 600px;
+    overflow-y: scroll;
+    margin-left: 50px
+}
+.coachImg{
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.coachImg img{width: 100%}

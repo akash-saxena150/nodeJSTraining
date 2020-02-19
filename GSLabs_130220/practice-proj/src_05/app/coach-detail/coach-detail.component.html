@@ -1,0 +1,9 @@
+<div class="coachDetailContainer" (click)="alertCoachName(coach.name)">
+    <div class="coachImg">
+        <img [src]="getImg(coach.profile_pic)"/>
+    </div>
+    <h2>{{coach.name}}</h2>
+    <p>
+        {{coach.tagline}}
+    </p>
+</div>

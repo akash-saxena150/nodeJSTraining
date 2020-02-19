@@ -2,8 +2,25 @@
     <div class="coachImg">
         <img [src]="getImg()"/>
     </div>
-    <h2>{{name}}</h2>
+    <h2>{{coach.name}}</h2>
     <p>
-        {{description}}
+        {{coach.tagline}}
     </p>
+    <div class="dropdown" appDropdown>
+        <h2>Packages</h2>
+        <div class="ddContent">
+            <div>
+                <h3>12 week coaching</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+            </div>
+            <div>
+                <h3>12 week twin coaching</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                </p>
+            </div>
+        </div>      
+    </div>
 </div>

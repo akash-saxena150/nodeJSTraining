@@ -12,15 +12,8 @@
 <div>
   <app-servers></app-servers>
 </div> -->
-<div fxLayout="row" fxLayoutAlign="space-between" class="header">
-    <div fxFlex="80%">
-        <div fxLayout="row" fxLayoutAlign="start" class="left-menu">
-                <div fxFlex="10%" class="menu-item" (click)="currentRoute=0">Home</div>
-            <div fxFlex="10%" (click)="currentRoute=1" class="menu-item">Coaches</div>
-        </div>
-    </div>    
-    <div fxFlex="20%" class="menu-item" (click)="currentRoute=2">Signin</div>
-</div>
-<app-home *ngIf="currentRoute === 0"></app-home>
+<app-header (routeChanged)="onRouteChanged($event)"></app-header>
+<router-outlet></router-outlet>
+<!-- <app-home *ngIf="currentRoute === 0" (onRouteChange)="onRouteChanged($event)"></app-home>
 <app-coaches *ngIf="currentRoute === 1"></app-coaches>
-<app-signin *ngIf="currentRoute === 2"></app-signin>
+<app-signin *ngIf="currentRoute === 2"></app-signin> -->

@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayoutAlign="space-between" class="header">
+    <div fxFlex="80%">
+        <div fxLayout="row" fxLayoutAlign="start" class="left-menu">
+            <div fxFlex="10%" class="menu-item" (click)="changeRoute(0)">Home</div>
+            <div fxFlex="10%" (click)="changeRoute(1)" class="menu-item">Coaches</div>
+        </div>
+    </div>    
+    <div fxFlex="20%" class="menu-item" (click)="changeRoute(2)">Signin</div>
+</div>

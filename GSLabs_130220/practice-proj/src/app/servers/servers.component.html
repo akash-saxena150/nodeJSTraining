@@ -1,10 +1,9 @@
 <div>Servers list:</div>
 <ul>
-    <li *ngFor="let server of serversData; let i = index">
-        {{i}}
-        <app-server >
+    <li *ngFor="let server of serversData; let i = index" [ngStyle]="highlightedServer===i?{backgroundColor:'#f1f1f1'}:{}">
+        <app-server [serverData] = "server" [indx] = "i">
         </app-server>
-        <button (click)="deleteServer(i)">delete server</button>
+        <!-- <button (click)="deleteServer(i)">delete server</button> -->
         <hr/>
     </li>
 </ul>
