@@ -1,2 +1,11 @@
 <h5>{{ server.name }}</h5>
 <p>Server status is {{ server.status }}</p>
+<div>
+    <a 
+    [routerLink]="['/servers', serverId, 'edit']"
+    [queryParams]="{edit: 1, randomField: 10}"
+    fragment="Test"
+    >
+        Edit server
+    </a>
+</div>

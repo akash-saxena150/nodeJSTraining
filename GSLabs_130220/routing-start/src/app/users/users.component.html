@@ -2,9 +2,9 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a
-        href="#"
+        [routerLink]="['/users', i+1, user.name]"
         class="list-group-item"
-        *ngFor="let user of users">
+        *ngFor="let user of users; index as i">
         {{ user.name }}
       </a>
     </div>
